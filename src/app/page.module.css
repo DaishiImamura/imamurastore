@@ -1,0 +1,215 @@
+.container {
+  width: 100%;
+}
+
+/* ヒーローセクション */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at 10% 20%, rgba(var(--accent-base), 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 90% 80%, rgba(var(--accent-base), 0.05) 0%, transparent 50%);
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.heroTag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(var(--accent-base), 0.1);
+  border-radius: 50px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--foreground) 0%, rgba(var(--fg-base), 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.heroDescription {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--foreground);
+  opacity: 0.75;
+  max-width: 640px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.heroCta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+/* ボタン */
+.primaryButton {
+  background-color: var(--accent-color);
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px -4px rgba(var(--accent-base), 0.4);
+  transition: all 0.3s ease;
+}
+
+.primaryButton:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -4px rgba(var(--accent-base), 0.5);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background-color: rgba(var(--fg-base), 0.05);
+  border-color: var(--foreground);
+  transform: translateY(-2px);
+}
+
+/* コンテンツセクション */
+.contentSection {
+  padding: 8rem 2rem;
+  background-color: rgba(var(--fg-base), 0.02);
+  border-top: 1px solid var(--card-border);
+}
+
+.sectionInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* グリッドレイアウト */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* カード */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--accent-base), 0.3);
+}
+
+.cardDate {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.cardText {
+  font-size: 0.95rem;
+  color: var(--foreground);
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+/* アニメーションキーフレーム */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* レスポンシブ */
+@media (max-width: 640px) {
+  .heroCta {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+  .primaryButton,
+  .secondaryButton {
+    text-align: center;
+    width: 100%;
+  }
+}

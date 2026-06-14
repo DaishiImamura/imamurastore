@@ -1,65 +1,55 @@
-import Image from "next/image";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className={styles.container}>
+      {/* ヒーローセクション */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <span className={styles.heroTag}>Innovative Design & Technology</span>
+          <h1 className={styles.heroTitle}>
+            未来の価値を、
+            <br />
+            ここから創造する。
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className={styles.heroDescription}>
+            IMAMURA STOREは、先進的な技術と洗練されたデザインを融合させ、
+            新しい体験と信頼を提供するコーポレートサイトのサンプルです。
+            ヘッダーのガラスモーフィズム効果や、スムーズなアニメーションをお試しください。
           </p>
+          <div className={styles.heroCta}>
+            <a href="/services" className={styles.primaryButton}>
+              事業紹介
+            </a>
+            <a href="/about" className={styles.secondaryButton}>
+              私たちについて
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* コンテンツセクション (スクロール確認用) */}
+      <section className={styles.contentSection}>
+        <div className={styles.sectionInner}>
+          <h2 className={styles.sectionTitle}>お知らせ</h2>
+          <div className={styles.grid}>
+            <div className={styles.card}>
+              <span className={styles.cardDate}>2026.06.14</span>
+              <h3 className={styles.cardTitle}>Webサイトを開設いたしました</h3>
+              <p className={styles.cardText}>
+                最新情報やプレスリリースなどをいち早くお届けするため、コーポレートサイトを開設いたしました。今後ともよろしくお願いいたします。
+              </p>
+            </div>
+            <div className={styles.card}>
+              <span className={styles.cardDate}>2026.06.01</span>
+              <h3 className={styles.cardTitle}>新規パートナーシップの締結</h3>
+              <p className={styles.cardText}>
+                より質の高いサービス提供を目指し、新たなテクノロジーパートナーとの業務提携に合意しました。詳細につきましては別途資料をご覧ください。
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }
